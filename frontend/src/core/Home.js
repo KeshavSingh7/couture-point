@@ -26,11 +26,11 @@ const Home = () => {
 
   return (
     <Base title="HOME" description="welcome to the Brand new Tshirt store">
-      <div className="  ">
-        <div>
-          {products.map((product, index) => {
+      <div className=" ">
+        <div className="flex flex-row justify-center flex-wrap">
+          {products.map((product) => {
             return (
-              <div key={index} className="d-flex justify-content-around ">
+              <div key={product._id}>
                 <Card product={product} />
               </div>
             );

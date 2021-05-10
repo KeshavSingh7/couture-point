@@ -8,10 +8,10 @@ const Base = ({
 }) => (
   <div>
     <Menu />
-    <div className="container-fluid">
-      <div className="   text-center">
-        <h2 className="display-2">{title}</h2>
-        <p className="lead">{description}</p>
+    <div className="container-fluid font-serif">
+      <div className="text-center">
+        <h2 className="text-7xl">{title}</h2>
+        <p className="font-mono">{description}</p>
       </div>
       <div className={className}>{children}</div>
     </div>

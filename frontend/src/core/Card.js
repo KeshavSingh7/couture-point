@@ -21,7 +21,7 @@ const CardIND = ({
       return <Redirect to="/cart" />;
     }
   };
-  const show_alert = () => {};
+  // const show_alert = () => {};
   const cardTitle = product ? product.name : "a photoo from pexels";
   const cardDescription = product
     ? product.discription
@@ -31,10 +31,10 @@ const CardIND = ({
   const ShowAddToCart = (addToCart) => {
     return (
       addToCart && (
-        <div className="col-12">
+        <div className="flex justify-center">
           <button
             onClick={addtoCart}
-            className="btn btn-outline-success mt-2 mb-2"
+            className="border-2 w-56 border-red-600 m-2 p-2 rounded-lg box-border  hover:bg-purple-600 hover:text-white"
           >
             Add to Cart
           </button>
@@ -62,11 +62,11 @@ const CardIND = ({
   };
   return (
     <>
-      <div style={{ width: "auto", marginBottom: "3em" }}>
+      <div className="border border-5 m-5 p-2 bg-white rounded-lg">
         <ImageHelper product={product} />
         {getAredirect(redirect)}
         <div>
-          <div>{cardTitle}</div>
+          <div className="">{cardTitle}</div>
           <div>{cardDescription}</div>
           <div>Price : ${cardPrice}</div>
 
