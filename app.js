@@ -24,7 +24,7 @@ try {
   const fetch = require("node-fetch");
   // globals
   const interval = 60 * 25 * 1000; // interval in milliseconds - {25mins x 60s x 1000}ms
-  const url = "https://tees-store.herokuapp.com/api/products";
+  const url = "https://couturepoint.herokuapp.com/api/products";
   function wake() {
     try {
       const handler = setInterval(() => {
@@ -48,6 +48,7 @@ mongoose
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
+    useFindAndModify: false,
   })
   .then(() => {
     console.log("DB CONNECTED");

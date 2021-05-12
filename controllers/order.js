@@ -1,5 +1,6 @@
 const { Order, ProductCart } = require("../models/order");
 const order = require("../models/order");
+const user = require("../models/user");
 exports.getOrderById = (req, res, next, id) => {
   Order.findById(id)
     .populate("products.product", "name price")
@@ -22,21 +23,28 @@ exports.createOrder = (req, res) => {
         error: "failed to save data in DB",
       });
     }
+
     res.json(order);
   });
 };
 
-
 exports.getAllOrders = (req, res) => {
-  Order.find()
+  user
+    .find()
     .populate("user", "_id name")
-    .exec((err, order) => {
+    .exec((err, o) => {
       if (err) {
         return res.status(400).json({
           error: "No orders found in the database",
         });
       }
-      res.json(order);
+      for (var i = 0; i < o.length; i++) {
+        o[i].salt = undefined;
+        o[i].encry_password = undefined;
+        o[i].createdAt = undefined;
+        o[i].updatedAt = undefined;
+      }
+      return res.json(o);
     });
 };
 

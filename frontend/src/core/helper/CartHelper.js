@@ -26,20 +26,37 @@ export const removeItemFromCart = (productId) => {
     if (localStorage.getItem("cart")) {
       cart = JSON.parse(localStorage.getItem("cart"));
     }
-    console.log(productId);
-    cart.map((product, index) => {
-      if (product._id === productId) {
-        cart.splice(index, 1);
+    console.log(cart);
+    for (var i = 0; i < cart.length; i++) {
+      if (cart[i]._id === productId) {
+        cart.splice(i, 1);
+        break;
       }
-    });
+    }
     localStorage.setItem("cart", JSON.stringify(cart));
   }
   return cart;
 };
 
-export const cartEmpty = (next) => {
+export const cartEmpty = () => {
   if (typeof window !== undefined) {
     localStorage.removeItem("cart");
-    next();
+  }
+};
+
+export const cartPrice = (next) => {
+  if (typeof window !== undefined) {
+    let cart = [];
+    if (typeof window !== undefined) {
+      if (localStorage.getItem("cart")) {
+        cart = JSON.parse(localStorage.getItem("cart"));
+      }
+    }
+    let price = 0;
+    cart.map((product) => {
+      price += product.price;
+    });
+    console.log(price);
+    return price;
   }
 };

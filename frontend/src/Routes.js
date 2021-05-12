@@ -16,6 +16,7 @@ import UpdateProduct from "./admin/UpdateProduct";
 import UpdateCategoory from "./admin/UpdateCategoory";
 import Cart from "./core/Cart";
 import UpdateUser from "./user/UpateUser";
+import Order from "./admin/Orders";
 const Routes = () => {
   return (
     <BrowserRouter>
@@ -54,6 +55,7 @@ const Routes = () => {
           exact
           component={UpdateCategoory}
         />
+        <AdminRoute path="/admin/orders" exact component={Order} />
       </Switch>
     </BrowserRouter>
   );

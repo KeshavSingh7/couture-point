@@ -1,10 +1,10 @@
 const User = require("../models/user");
-const order = require("../models/order");
+const Order = require("../models/order");
 exports.getUserById = (req, res, next, id) => {
   User.findById(id).exec((err, user) => {
     if (err || !user) {
       return res.status(400).json({
-        error: "no user was found in the databasse"
+        error: "no user was found in the databasse",
       });
     }
     req.profile = user;
@@ -39,7 +39,7 @@ exports.updateUser = (req, res) => {
     (err, user) => {
       if (err) {
         return res.status(400).json({
-          error: "you are not authorized to update the user"
+          error: "you are not authorized to update the user",
         });
       }
       user.salt = undefined;
@@ -52,13 +52,12 @@ exports.updateUser = (req, res) => {
 };
 
 exports.userPurchaseList = (req, res) => {
-  order
-    .find({ user: req.profile._id })
+  Order.find({ user: req.profile._id })
     .populate("user", "_id name")
     .exec((err, order) => {
       if (err) {
         return res.status().json({
-          err: "No purchases found in this account"
+          err: "No purchases found in this account",
         });
       }
       return res.json(order);
@@ -67,18 +66,19 @@ exports.userPurchaseList = (req, res) => {
 
 exports.pushOrderInPurchaseList = (req, res, next) => {
   let purchases = [];
-  req.body.order.products.forEach(product => {
+  console.log(req.body.order.products);
+  req.body.order.products.forEach((product) => {
     purchases.push({
       _id: product._id,
       name: product.name,
       description: product.discription,
       category: product.category,
-      quantity: productr.quantity,
+      quantity: product.quantity,
       amount: req.body.order.amount,
-      transactiion_id: req.body.order.transactiion_id
+      transactiion_id: req.body.order.transactiion_id,
     });
   });
-  //storeingt dt a in data base\
+  //storeingt data in data base\findOneAndUpdate()
   User.findOneAndUpdate(
     { _id: req.profile._id },
     { $push: { purchases: purchases } },
@@ -86,7 +86,7 @@ exports.pushOrderInPurchaseList = (req, res, next) => {
     (err, purchases) => {
       if (err) {
         return res.status(400).json({
-          error: "Unabe to save the purchasee list"
+          error: "Unabe to save the purchasee list",
         });
       }
     }
