@@ -4,6 +4,7 @@ import "../Assets/CSS/Main.css";
 import Base from "./Base";
 import Card from "./Card";
 import { getProducts } from "./helper/coreapicalls";
+import { motion } from 'framer-motion';
 
 const Home = () => {
   const [products, setProduct] = useState([]);
@@ -25,18 +26,16 @@ const Home = () => {
   }, []);
 
   return (
-    <Base title="HOME" description="welcome to the Brand new Tshirt store">
-      <div className=" ">
-        <div className="flex flex-row justify-center flex-wrap">
+    <Base title="HOME" description="WELCOME TO THE PERFECT FASHION DESTINATION">
+        <motion.div layout className="flex flex-row justify-around lg:justify-between flex-wrap">
           {products.map((product) => {
             return (
-              <div key={product._id}>
+              <div className="" key={product._id}>
                 <Card product={product} />
               </div>
             );
           })}
-        </div>
-      </div>
+        </motion.div>
     </Base>
   );
 };
