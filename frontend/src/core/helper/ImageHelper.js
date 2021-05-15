@@ -5,11 +5,11 @@ const ImageHelper = ({ product }) => {
     ? `${API}/product/photo/${product._id}`
     : "https://picsum.photos/500/500";
   return (
-    <div className="rounded  p-2">
+    <div className="img-container">
       <img
         src="https://picsum.photos/200/300"
-        alt="photo"
-        className="h-56 w-56 cursor-pointer"
+        alt=""
+        className="h-60 w-60 cursor-pointer"
       />
     </div>
   );

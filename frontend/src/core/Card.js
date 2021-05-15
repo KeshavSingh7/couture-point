@@ -11,12 +11,14 @@ const CardIND = ({
   reload = undefined,
 }) => {
   const [redirect, setRedirect] = useState(false);
+
   const addtoCart = () => {
     addItemToCart(product, () => setRedirect(true));
   };
+
   const getAredirect = (redirect) => {
     if (redirect) {
-      return <Redirect to="/" />;
+      return <Redirect to="/cart" />;
     }
   };
   // const show_alert = () => {};
@@ -25,17 +27,16 @@ const CardIND = ({
     ? product.discription
     : "a photoo from pexels";
   const cardPrice = product ? product.price : "a photoo from pexels";
+
   const ShowAddToCart = (addToCart) => {
     return (
       addToCart && (
-        <div className="flex justify-center">
           <button
             onClick={addtoCart}
-            className="border-2 w-56 border-red-600 m-2 p-2 rounded-2xl box-border  hover:bg-purple-600 hover:text-white"
+            className="border-2 border-custom-shade3 pb-1 pt-1 pl-2 pr-2 rounded-lg text-custom-shade4 font-medium hover:bg-custom-shade3 hover:text-white"
           >
             Add to Cart
           </button>
-        </div>
       )
     );
   };
@@ -43,30 +44,29 @@ const CardIND = ({
   const ShowRemoveFromCart = (removeFromCart) => {
     return (
       removeFromCart && (
-        <div className="">
           <button
             onClick={() => {
               removeItemFromCart(product._id);
               setReload(!reload);
             }}
-            className="btn btn-block btn-outline-danger mt-2 mb-5"
+            className="border-2 border-custom-shade3 pb-1 pt-1 pl-2 pr-2 rounded-lg text-custom-shade4 font-medium hover:bg-custom-shade3 hover:text-white"
           >
             Remove from cart
           </button>
-        </div>
       )
     );
   };
-
   return (
     <>
-      <div className="border border-5 m-5 p-2 bg-white rounded-xl">
+      <div className="bg-white rounded-xl overflow-hidden shadow-lg my-4">
         <ImageHelper product={product} />
         {getAredirect(redirect)}
-        <div>
-          <div className="">{cardTitle}</div>
-          <div>{cardDescription}</div>
-          <div>Price : ${cardPrice}</div>
+        <div className="product-description p-2">
+          <p className="text-custom-shade4 text-2xl font-custom1 font-semibold">{cardTitle}</p>
+          <p className="text-custom-shade3">{cardDescription}</p>
+          <p className="text-custom-shade3">Price : ${cardPrice}</p>
+        </div>
+        <div className="p-2 text-center">
           {ShowAddToCart(addToCart)}
           {ShowRemoveFromCart(removeFromCart)}
         </div>
