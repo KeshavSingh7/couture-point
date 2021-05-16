@@ -21,7 +21,7 @@ const CardIND = ({
       return <Redirect to="/cart" />;
     }
   };
-  // const show_alert = () => {};
+
   const cardTitle = product ? product.name : "a photoo from pexels";
   const cardDescription = product
     ? product.discription
@@ -31,12 +31,9 @@ const CardIND = ({
   const ShowAddToCart = (addToCart) => {
     return (
       addToCart && (
-          <button
-            onClick={addtoCart}
-            className="btn"
-          >
-            Add to Cart
-          </button>
+        <button onClick={addtoCart} className="btn">
+          Add to Cart
+        </button>
       )
     );
   };
@@ -44,25 +41,27 @@ const CardIND = ({
   const ShowRemoveFromCart = (removeFromCart) => {
     return (
       removeFromCart && (
-          <button
-            onClick={() => {
-              removeItemFromCart(product._id);
-              setReload(!reload);
-            }}
-            className="btn"
-          >
-            Remove from cart
-          </button>
+        <button
+          onClick={() => {
+            removeItemFromCart(product._id);
+            setReload(!reload);
+          }}
+          className="btn"
+        >
+          Remove from cart
+        </button>
       )
     );
   };
   return (
     <>
-      <div className="bg-white rounded-xl overflow-hidden shadow-lg my-4 font-custom2">
+      <div className="bg-white rounded-xl overflow-hidden shadow-lg my-4 p-2 font-custom2">
         <ImageHelper product={product} />
         {getAredirect(redirect)}
         <div className="product-description p-2">
-          <p className="text-custom-shade4 text-2xl font-custom1 font-semibold">{cardTitle}</p>
+          <p className="text-custom-shade4 text-2xl font-custom1 font-semibold">
+            {cardTitle}
+          </p>
           <p className="text-custom-shade3">{cardDescription}</p>
           <p className="text-custom-shade3">Price : ${cardPrice}</p>
         </div>

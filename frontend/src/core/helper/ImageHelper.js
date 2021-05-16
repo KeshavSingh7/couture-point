@@ -7,9 +7,9 @@ const ImageHelper = ({ product }) => {
   return (
     <div className="img-container">
       <img
-        src="https://picsum.photos/200/300"
+        src={imageUrl}
         alt=""
-        className="h-60 w-60 cursor-pointer"
+        className="h-60 w-60 cursor-pointer rounded-md"
       />
     </div>
   );
