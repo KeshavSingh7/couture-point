@@ -16,10 +16,14 @@ module.exports = {
         custom1 : 'Glamor',
         custom2 : 'Vollkron'
       },
+
+      screens: {
+        'xs': {'max': '639px'}
+      }
     },
   },
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [require('tailwind-bootstrap-grid')()],
 };

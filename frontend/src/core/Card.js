@@ -26,14 +26,14 @@ const CardIND = ({
   const cardDescription = product
     ? product.discription
     : "a photoo from pexels";
-  const cardPrice = product ? product.price : "a photoo from pexels";
+  const cardPrice = product ? product.price : "a photo from pexels";
 
   const ShowAddToCart = (addToCart) => {
     return (
       addToCart && (
           <button
             onClick={addtoCart}
-            className="border-2 border-custom-shade3 pb-1 pt-1 pl-2 pr-2 rounded-lg text-custom-shade4 font-medium hover:bg-custom-shade3 hover:text-white"
+            className="btn"
           >
             Add to Cart
           </button>
@@ -49,7 +49,7 @@ const CardIND = ({
               removeItemFromCart(product._id);
               setReload(!reload);
             }}
-            className="border-2 border-custom-shade3 pb-1 pt-1 pl-2 pr-2 rounded-lg text-custom-shade4 font-medium hover:bg-custom-shade3 hover:text-white"
+            className="btn"
           >
             Remove from cart
           </button>
@@ -58,7 +58,7 @@ const CardIND = ({
   };
   return (
     <>
-      <div className="bg-white rounded-xl overflow-hidden shadow-lg my-4">
+      <div className="bg-white rounded-xl overflow-hidden shadow-lg my-4 font-custom2">
         <ImageHelper product={product} />
         {getAredirect(redirect)}
         <div className="product-description p-2">
