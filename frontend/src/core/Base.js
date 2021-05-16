@@ -1,8 +1,8 @@
 import Menu from "./menu";
 
 const Base = ({
-  title = "my title",
-  description = "my description",
+  title = null, //title = "my title",
+  description = null, //description = "my description",
   children,
 }) => (
   <div className="bg-custom-shade1 min-h-screen w-full">

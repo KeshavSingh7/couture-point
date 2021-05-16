@@ -183,17 +183,33 @@ const Menu = ({history}) => {
               </li>
 
               {isAuthenticated() && isAuthenticated().user.role === 0 && (
-                  <li>
-                      <Link style={currentTab(history, "/user/dashboard")} to="/user/dashboard">
-                          Dashboard
+                  <li className="mt-2 lg:mr-4">
+                      <Link style={currentTab(history, "/user/dashboard")} to="/user/dashboard" className="hover:no-underline">
+                          <div className="p-1 flex justify-end border-b-2 border-transparent hover:border-custom-shade2">
+                            <svg className="w-4 lg:mx-auto" viewBox="0 0 512 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M229 40V264C229 286.06 211.882 304 190.833 304H38.1667C17.1178 304 0 286.06 0 264V40C0 17.94 17.1178 0 38.1667 0H190.833C211.882 0 229 17.94 229 40Z" />
+                              <path d="M512 248V472C512 494.06 494.882 512 473.833 512H321.167C300.118 512 283 494.06 283 472V248C283 225.94 300.118 208 321.167 208H473.833C494.882 208 512 225.94 512 248Z" />
+                              <path d="M229 392.545V475.455C229 494.506 211.882 510 190.833 510H38.1667C17.1178 510 0 494.506 0 475.455V392.545C0 373.494 17.1178 358 38.1667 358H190.833C211.882 358 229 373.494 229 392.545Z" />
+                              <path d="M473.833 152H321.167C300.088 152 283 134.986 283 114V38C283 17.0136 300.088 0 321.167 0H473.833C494.912 0 512 17.0136 512 38V114C512 134.986 494.912 152 473.833 152Z" />
+                            </svg>
+                            <p className="ml-2">DASHBOARD</p>
+                          </div>
                       </Link>
                   </li>
               )}
 
               {isAuthenticated() && isAuthenticated().user.role === 1 && (
-                  <li>
-                      <Link style={currentTab(history, "/admin/dashboard")} to="/admin/dashboard">
-                          Admin Dashboard
+                  <li className="mt-2 lg:mr-4">
+                      <Link style={currentTab(history, "/admin/dashboard")} to="/admin/dashboard" className="hover:no-underline">
+                        <div className="p-1 flex justify-end border-b-2 border-transparent hover:border-custom-shade2">
+                          <svg className="w-4 lg:mx-auto" viewBox="0 0 512 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M229 40V264C229 286.06 211.882 304 190.833 304H38.1667C17.1178 304 0 286.06 0 264V40C0 17.94 17.1178 0 38.1667 0H190.833C211.882 0 229 17.94 229 40Z" />
+                            <path d="M512 248V472C512 494.06 494.882 512 473.833 512H321.167C300.118 512 283 494.06 283 472V248C283 225.94 300.118 208 321.167 208H473.833C494.882 208 512 225.94 512 248Z" />
+                            <path d="M229 392.545V475.455C229 494.506 211.882 510 190.833 510H38.1667C17.1178 510 0 494.506 0 475.455V392.545C0 373.494 17.1178 358 38.1667 358H190.833C211.882 358 229 373.494 229 392.545Z" />
+                            <path d="M473.833 152H321.167C300.088 152 283 134.986 283 114V38C283 17.0136 300.088 0 321.167 0H473.833C494.912 0 512 17.0136 512 38V114C512 134.986 494.912 152 473.833 152Z" />
+                          </svg>
+                          <p className="ml-2">ADMIN DASHBOARD</p>
+                        </div>
                       </Link>
                   </li>
               )}
@@ -224,16 +240,21 @@ const Menu = ({history}) => {
               )}
 
               {isAuthenticated() && (
-                <li>
+                <li className="mt-2">
                     <Link
                         to="/"
-                        className=" text-warning"
+                        className="hover:no-underline text-white"
                         onClick={() => {
                         signout(() => {
                             history.push("/");
                         });
                     }}>
-                        signout
+                      <div className="p-1 flex justify-end border-b-2 border-transparent hover:border-custom-shade2">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="w-5 lg:mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                        </svg>
+                        <p className="ml-2">SIGN OUT</p>
+                      </div>
                     </Link>
                 </li>
               )}

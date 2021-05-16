@@ -53,22 +53,29 @@ const Signin = () => {
   const loadingMessage = () => {
     return (
       loading && (
-        <div className="alert alert-info">
-          <h2>loading</h2>
+        <div className="row">
+          <div className="alert alert-info sm:offset-2 md:offset-3 lg:offset-4 xl:offset-4 sm:col-8 md:col-6 lg:col-5 xl:col-4">
+            <h1 className="text-lg text-center"> Loading </h1>
+          </div>
         </div>
       )
     );
   };
 
+  const closeAlert = (e) => {
+    e.target.parentElement.style.display = "none";
+  }
+
   const errorMessage = () => {
     return (
       <div className="row">
-        <div className="col-md-6 offset-sm-3 text-left">
+        <div className="sm:offset-2 md:offset-3 lg:offset-4 xl:offset-4 sm:col-8 md:col-6 lg:col-5 xl:col-4">
           <div
-            className="alert alert-danger"
+            className="alert alert-danger flex justify-between"
             style={{ display: error ? "" : "none" }}
           >
             {error}
+            <span className="cursor-pointer" onClick={(closeAlert)}>X</span>
           </div>
         </div>
       </div>
@@ -77,48 +84,48 @@ const Signin = () => {
 
   const signInForm = () => {
     return (
-      <div className="row">
-        <div className="col-md-6 offset-sm-3 text-left">
-          <form action="">
-            <div className="form-group">
-              <div className="row">
-                <label className="text-dark col-md-3 offset-md-2 mt-auto">
-                  Email :
-                </label>
-                <input
-                  onChange={handleChange("email")}
-                  className="col-md-6 form-control"
-                  type="email"
-                  value={email}
-                />
-              </div>
-            </div>
-            <div className="form-group">
-              <div className="row">
-                <label className="text-dark col-md-3 offset-md-2 mt-auto">
-                  Password :
-                </label>
-                <input
-                  onChange={handleChange("password")}
-                  className="col-md-6 form-control"
-                  type="password"
-                  value={password}
-                />
-              </div>
-            </div>
-            <div className="col-10 offset-md-2">
-              <button onClick={onSubmit} className="btn btn-success form-control col-11">
-                submit
-              </button>
-            </div>
-          </form>
+      <div className="xs:flex xs:flex-col xs:items-center container font-custom2">
+        <div className="xs:flex xs:flex-col row">
+          <div className="layout1">
+            <label htmlFor="mail" className="pt-1 pb-1">EMAIL ID : </label>
+          </div>
+          <div className="layout2">
+            <input
+              onChange={handleChange("email")}
+              type="email"
+              value={email}
+              id="mail"
+              className="input"
+              />
+          </div>
+        </div>
+        <div className="xs:flex xs:flex-col row mt-4">
+          <div className="layout1">
+            <label htmlFor="pwd" className="pt-1 pb-1">PASSWORD : </label>
+          </div>
+          <div className="layout2">
+            <input
+              onChange={handleChange("password")}
+              type="password"
+              value={password}
+              id="pwd"
+              className="input"
+              />
+          </div>
+        </div>
+        <div className="row mt-4">
+          <div className="sm:offset-5">
+            <button onClick={onSubmit} className="btn">
+              SIGN IN
+            </button>
+          </div>
         </div>
       </div>
     );
   };
 
   return (
-    <Base title="Signin page" Description="a page for user signin!!">
+    <Base title="SIGN IN">
       {loadingMessage()}
       {errorMessage()}
       {signInForm()}
