@@ -47,7 +47,7 @@ const Cart = () => {
               className=" p-3 bg-green-500 cursor-pointer rounded-md"
               onClick={handleClick}
             >
-              Proceed to checkout : {price}
+              Proceed to checkout : &#8377; {price}
             </div>
           </div>
         )}

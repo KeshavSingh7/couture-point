@@ -143,7 +143,9 @@ const Menu = ({ history }) => {
         </div>*/}
       <div className="bg-custom-shade3 flex flex-wrap justify-between item-center pr-4 pl-2 py-2 sticky top-0">
         <div className="flex justify-between items-center w-full  lg:w-auto">
-          <img src={logo} alt="logo" />
+          <Link to="/">
+            <img src={logo} alt="logo" />
+          </Link>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"

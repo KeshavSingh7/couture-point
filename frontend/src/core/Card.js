@@ -22,7 +22,7 @@ const CardIND = ({
     }
   };
 
-  const cardTitle = product ? product.name : "a photoo from pexels";
+  const cardTitle = product ? product.name : "a photo from pexels";
   const cardDescription = product
     ? product.discription
     : "a photoo from pexels";
@@ -63,7 +63,7 @@ const CardIND = ({
             {cardTitle}
           </p>
           <p className="text-custom-shade3">{cardDescription}</p>
-          <p className="text-custom-shade3">Price : ${cardPrice}</p>
+          <p className="text-custom-shade3">Price : &#8377; {cardPrice}</p>
         </div>
         <div className="p-2 text-center">
           {ShowAddToCart(addToCart)}
