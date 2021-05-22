@@ -11,7 +11,7 @@
 }
 
 .btn {
-  @apply border-2 border-custom-shade3 pb-1 pt-1 pl-2 pr-2 rounded-lg text-custom-shade4 font-semibold hover:bg-custom-shade3 hover:text-white;
+  @apply focus:outline-none border-2 border-custom-shade3 pb-1 pt-1 pl-2 pr-2 rounded-lg text-custom-shade4 font-semibold hover:bg-custom-shade3 hover:text-white;
 }
 
 .input {

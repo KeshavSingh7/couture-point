@@ -9,7 +9,7 @@ const Base = ({
     <Menu />
     <div className="container p-4">
       <div className="header p-4">
-        <h2 className="font-custom1 text-7xl text-center p-2 text-custom-shade4">{title}</h2>
+        <h2 className="font-custom1 text-4xl sm:text-7xl text-center p-2 text-custom-shade4">{title}</h2>
         {description && <p className="font-custom2 text-lg text-center p-2 text-custom-shade3">{description}</p>}
       </div>
       <div className="body p-4">{children}</div>

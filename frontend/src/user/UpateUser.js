@@ -3,17 +3,20 @@ import React, { useEffect, useState } from 'react'
 import Base from '../core/Base'
 import { updateUser, getUser } from "./helper/userapicalls";
 import { Link } from "react-router-dom";
+import { motion } from 'framer-motion';
+
 const UpdateUser = () => {
 
     const { user, token } = isAuthenticated();
     const backBtn = () => (
-        <div className="mt-5">
-            <Link className="btn btn-sm btn-warning mb-3 mt-2" to="/user/dashboard">
-                <span className="fa fa-chevron-left" aria-hidden="true"></span> back to
-                admin dashbard
-            </Link>
-        </div>
-
+        <Link className="" to="/user/dashboard">
+            <div className="w-max border border-custom-shade3 rounded-md flex items-center bg-white p-2 hover:bg-custom-shade3 hover:text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                </svg>
+                <p className="text-xs ml-2 font-semibold">BACK TO DASHBOARD</p>
+            </div>
+        </Link>
     )
 
     const [values, setValues] = useState({
@@ -41,8 +44,8 @@ const UpdateUser = () => {
 
     useEffect(() => {
         preload();
-
     }, [])
+
     const handleChange = (name) => (event) => {
         setValues({ ...values, error: false, [name]: event.target.value });
     };
@@ -63,91 +66,86 @@ const UpdateUser = () => {
 
     const SuccessMessage = () => {
         return (
-            <div className="row">
-                <div className="col-md-8 offset-sm-2 text-left">
-                    <div
-                        className="alert alert-success"
-                        style={{ display: success ? "" : "none" }}
-                    >
-                        {console.log(success)}
-                Credentials  Updated successfully
-                <Link to="/user/dashboard">GO to Dashboard</Link>
-                    </div>
+            <motion.div layout className="max-w-lg mx-auto">
+                <div
+                    className="bg-custom-shade2 p-2 rounded-md flex justify-between mb-4"
+                    style={{ display: success ? "" : "none" }}
+                >
+                    {console.log(success)}
+                    CREDENTIALS UPDATED SUCCESSFULLY
+                    <Link to="/user/dashboard">GO TO DASHBOARD</Link>
                 </div>
-            </div>
+            </motion.div>
         );
     };
     const errorMessage = () => {
         return (
-            <div className="row">
-                <div className="col-md-6 offset-sm-3 text-left">
+            <motion.div layout className="">
+                <div className="">
                     <div
-                        className="alert alert-danger"
+                        className=""
                         style={{ display: error ? "" : "none" }}
                     >
                         {error}
                     </div>
                 </div>
-            </div>
+            </motion.div>
         );
     };
 
     const updateForm = () => {
         return (
-            <div className="row d-flex align-content-center">
-                <div className="col-md-10 offset-1 text-center">
-                    <form className="bg-white p-5 mb-5" action="">
-                        <div className="form-group">
-                            <div className="row">
-                                <label className="text-dark col-md-3 offset-md-2 mt-auto">
-                                    Name :
-                    </label>
-                                <input
-                                    className="col-md-6 form-control"
-                                    type="text"
-                                    name=""
-                                    id=""
-                                    value={name}
-                                    onChange={handleChange("name")}
-                                />
-                            </div>
+            <div className="max-w-lg mx-auto text-custom-shade4 font-custom2">
+                <div className="bg-custom-shade2 p-4">
+                    {backBtn()}
+                </div>
+                <div className="bg-white p-4">
+                    <div className="border border-custom-shade2 p-4">
+                        <div className="mb-4 row">
+                            <label className="text-sm font-semibold mr-4 offset-1 col-4 p-2">
+                                NAME :
+                            </label>
+                            <input
+                                className="border border-custom-shade3 p-1 outline-none rounded-md"
+                                type="text"
+                                name=""
+                                id=""
+                                value={name}
+                                onChange={handleChange("name")}
+                            />
                         </div>
-                        <div className="form-group">
-                            <div className="row">
-                                <label className="text-dark col-md-3 offset-md-2 mt-auto">
-                                    Email :
-                    </label>
-                                <input
-                                    className="col-md-6 form-control"
-                                    type="email"
-                                    name=""
-                                    id=""
-                                    value={email}
-                                    onChange={handleChange("email")}
-                                />
-                            </div>
+                        <div className="mb-4 row">
+                            <label className="text-sm font-semibold mr-4 offset-1 col-4 p-2">
+                                EMAIL : 
+                            </label>
+                            <input
+                                className="border border-custom-shade3 p-1 outline-none rounded-md"
+                                type="email"
+                                name=""
+                                id=""
+                                value={email}
+                                onChange={handleChange("email")}
+                            />
                         </div>
-                        <div className="form-group">
-                            <div className="row">
-                                <label className="text-dark col-md-3 offset-md-2 mt-auto">
-                                    Password :
-                    </label>
+                        <div className="mb-4 row">
+                                <label className="text-sm font-semibold mr-4 offset-1 col-4 p-2">
+                                    PASSWORD :  
+                                </label>
                                 <input
-                                    className="col-md-6 form-control"
+                                    className="border border-custom-shade3 p-1 outline-none rounded-md"
                                     type="password"
                                     name=""
                                     id=""
                                     value={password}
                                     onChange={handleChange("password")}
                                 />
-                            </div>
                         </div>
-                        <div className="col-10 offset-md-2">
-                            <button onClick={onSubmit} className="btn btn-success form-control col-11">
-                                submit
-                  </button>
+                        <div className="offset-4">
+                            <button onClick={onSubmit} className="btn">
+                                SAVE CHANGES
+                            </button>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         );
@@ -160,7 +158,6 @@ const UpdateUser = () => {
         <Base title="Update Profile" description="" className="container bg-success">
             {errorMessage()}
             {SuccessMessage()}
-            {backBtn()}
             {updateForm()}
         </Base>
     )
