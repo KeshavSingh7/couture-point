@@ -48,7 +48,7 @@ const Signup = () => {
       <div className="row">
         <div className="sm:offset-2 md:offset-3 lg:offset-4 xl:offset-4 sm:col-8 md:col-6 lg:col-5 xl:col-4">
           <div
-            className="alert alert-success text-center"
+            className="bg-custom-shade2 p-2 rounded-md flex justify-between mb-4"
             style={{ display: success ? "" : "none" }}
           >
             {" "}
@@ -67,7 +67,7 @@ const Signup = () => {
       <motion.div layout className="row">
         <div className="sm:offset-2 md:offset-3 lg:offset-4 xl:offset-4 sm:col-8 md:col-6 lg:col-5 xl:col-4">
           <div
-            className="alert alert-danger flex justify-between"
+            className="bg-custom-shade2 p-2 rounded-md flex justify-between mb-4"
             style={{ display: error ? "" : "none" }}
           >
             {error}

@@ -9,7 +9,7 @@ const ImageHelper = ({ product }) => {
       <img
         src={imageUrl}
         alt=""
-        className="h-60 w-60 cursor-pointer rounded-md"
+        className="h-60 w-60 cursor-pointer rounded-xl border-2 border-custom-shade2"
       />
     </div>
   );
