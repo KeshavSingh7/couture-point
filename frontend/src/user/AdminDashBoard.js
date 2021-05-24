@@ -9,56 +9,53 @@ const AdminDashboard = () => {
   } = isAuthenticated();
   const adminLeftSide = () => {
     return (
-      <div className="card">
-        <h4 className="card-header bg-dark text-white">Navigation</h4>
-        <ul className="list-group">
-          <li className="list-group-item">
-            <Link to="/admin/create/category" className="nav-link text-success">
-              Create Categories
+      <div className="">
+        <div className="p-4 bg-custom-shade3">
+          <p className="text-center text-xl font-medium text-white">NAVIGATION</p>
+        </div>
+        <div className="p-4 xs:flex flex-col justify-center">
+          <div className="p-1 mx-auto">
+            <Link to="/admin/create/category" className="text-xs font-semibold">
+              CREATE CATEGORIES
             </Link>
-          </li>
-          <li className="list-group-item">
-            <Link to="/admin/categories" className="nav-link text-success">
-              manage categories
+          </div>
+          <div className="p-1 mx-auto">
+            <Link to="/admin/categories" className="text-xs font-semibold">
+              MANAGE CATEGORIES
             </Link>
-          </li>
-          <li className="list-group-item">
-            <Link to="/admin/create/products" className="nav-link text-success">
-              Create product
+          </div>
+          <div className="p-1 mx-auto">
+            <Link to="/admin/create/products" className="text-xs font-semibold">
+              CREATE PRODUCT
             </Link>
-          </li>
-          <li className="list-group-item">
-            <Link to="/admin/products" className="nav-link text-success">
-              manage products
+          </div>
+          <div className="p-1 mx-auto">
+            <Link to="/admin/products" className="text-xs font-semibold">
+              MANAGE PRODUCTS
             </Link>
-          </li>
-          <li className="list-group-item">
-            <Link to="/admin/orders" className="nav-link text-success">
-              manage orders
+          </div>
+          <div className="p-1 mx-auto">
+            <Link to="/admin/orders" className="text-xs font-semibold">
+              MANAGE ORDERS
             </Link>
-          </li>
-        </ul>
+          </div>
+        </div>
       </div>
     );
   };
   const adminrightSide = () => {
     return (
-      <div>
-        <div className="card mb-4">
-          <h4 className="card-header">admin information</h4>
-          <ul className="list-group">
-            <li className="list-group-item">
-              <span className="badge badge-success mr-2">Name:</span>
-              {name}
-            </li>{" "}
-            <li className="list-group-item">
-              <span className="badge badge-success mr-2">Email:</span>
-              {email}
-            </li>
-            <li className="list-group-item">
-              <span className="badge badge-danger">admin area</span>
-            </li>
-          </ul>
+      <div className="p-8">
+        <div className="font-bold text-xl text-center">ADMIN INFO</div>
+        <div className="p-6">
+          <div className="flex items-center mb-4">
+            <p className="bg-custom-shade2 p-2 rounded-full text-sm font-bold">NAME :</p>
+            <p className="ml-2 font-medium text-lg">{name}</p>
+          </div>
+          <div className="flex items-center">
+            <p className="bg-custom-shade2 p-2 rounded-full text-sm font-bold">EMAIL :</p>
+            <p className="ml-2 font-medium text-lg">{email}</p>
+          </div>
         </div>
       </div>
     );
@@ -66,13 +63,13 @@ const AdminDashboard = () => {
 
   return (
     <Base
-      title="welcome  to admin area"
-      description="manage all of your products here"
-      className="container bg-success  p-4"
+      title="ADMIN DASHBOARD"
+      description=""
+      className=""
     >
-      <div className="row">
-        <div className="col-md-3">{adminLeftSide()}</div>
-        <div className="col-md-9">{adminrightSide()}</div>
+      <div className="font-custom2 sm:flex mx-auto w-max sm:border border-custom-shade3 text-custom-shade4 sm:rounded-lg overflow-hidden">
+        <div className="sm:border-r border-custom-shade3 bg-custom-shade2 xs:mb-8 xs:rounded-lg overflow-hidden">{adminLeftSide()}</div>
+        <div className="sm:border-l border-custom-shade3 bg-white xs:rounded-lg">{adminrightSide()}</div>
       </div>
     </Base>
   );
