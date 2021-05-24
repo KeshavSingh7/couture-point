@@ -49,7 +49,7 @@ const UserDashboard = () => {
   const UserrightSide = () => {
     return (
       <div>
-          <h4 className=" text-center text-lg font-semibold mb-4">USER INFO</h4>
+          <div className=" text-center text-lg font-semibold mb-4">USER INFO</div>
           <div className="border border-custom-shade2 p-4">
             <div className="flex items-center mb-4">
               <p className="bg-custom-shade2 p-2 rounded-full text-xs font-bold">NAME : </p> 
