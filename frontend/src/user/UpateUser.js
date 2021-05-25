@@ -66,7 +66,7 @@ const UpdateUser = () => {
 
     const SuccessMessage = () => {
         return (
-            <motion.div layout className="max-w-lg mx-auto">
+            <motion.div layout className="w-max mx-auto">
                 <div
                     className="bg-custom-shade2 p-2 rounded-md flex justify-between mb-4"
                     style={{ display: success ? "" : "none" }}
@@ -80,10 +80,10 @@ const UpdateUser = () => {
     };
     const errorMessage = () => {
         return (
-            <motion.div layout className="">
+            <motion.div layout className="w-max mx-auto">
                 <div className="">
                     <div
-                        className=""
+                        className="bg-custom-shade2 p-2 rounded-md flex justify-between mb-4"
                         style={{ display: error ? "" : "none" }}
                     >
                         {error}

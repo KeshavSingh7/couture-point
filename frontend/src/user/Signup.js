@@ -45,13 +45,12 @@ const Signup = () => {
 
   const SuccessMessage = () => {
     return (
-      <div className="row">
+      <motion.div layout className="row">
         <div className="sm:offset-2 md:offset-3 lg:offset-4 xl:offset-4 sm:col-8 md:col-6 lg:col-5 xl:col-4">
           <div
             className="bg-custom-shade2 p-2 rounded-md flex justify-between mb-4"
             style={{ display: success ? "" : "none" }}
           >
-            {" "}
             New account was created successfully.
             <svg xmlns="http://www.w3.org/2000/svg" className="w-5 mx-auto" viewBox="0 0 20 20" fill="currentColor">
               <path fill-rule="evenodd" d="M16.707 10.293a1 1 0 010 1.414l-6 6a1 1 0 01-1.414 0l-6-6a1 1 0 111.414-1.414L9 14.586V3a1 1 0 012 0v11.586l4.293-4.293a1 1 0 011.414 0z" clip-rule="evenodd" />
@@ -59,7 +58,7 @@ const Signup = () => {
             <Link to="/signin">Login Here</Link>
           </div>
         </div>
-      </div>
+      </motion.div>
     );
   };
   const errorMessage = () => {

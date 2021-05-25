@@ -12,10 +12,14 @@ const AddCategory = () => {
 
   const { user, token } = isAuthenticated();
   const goBack = () => (
-    <div className="mt-5">
-      <Link className="btn btn-sm btn-warning mb-3" to="/admin/dashboard">
-        <span className="fa fa-chevron-left" aria-hidden="true"></span> back to
-        admin dashbard
+    <div className="bg-custom-shade2 p-2 sm:p-4 flex justify-center">
+      <Link className="" to="/admin/dashboard">
+        <div className="w-max border border-custom-shade3 rounded-md flex items-center bg-white p-2 hover:bg-custom-shade3 hover:text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+            </svg>
+            <p className="text-xs ml-2 font-semibold">BACK TO ADMIN DASHBOARD</p>
+        </div>
       </Link>
     </div>
   );
@@ -32,8 +36,9 @@ const AddCategory = () => {
 
     createCategory(user._id, token, { name })
       .then((data) => {
+        console.log(data)
         if (data.error) {
-          setError(true);
+          //setError(true);
         } else {
           setError("");
           setSuccess(true);
@@ -47,49 +52,60 @@ const AddCategory = () => {
 
   const successMessage = () => {
     if (success) {
-      return <h4 className="text-success">category created successfully</h4>;
+      return (<p className="text-lg">category created successfully</p>)
     }
   };
 
   const warningMessage = () => {
     if (error) {
-      return <h4 className="text-danger">{{ error }}</h4>;
+      return <p className="">{{ error }}</p>;
     }
   };
 
+  const closeAlert = (e) => {
+    setSuccess(false);
+    setError(false);
+  }
+
   const myCategoryForm = () => (
-    <form action="">
-      <div className="form-group">
-        <p className="lead">enter the category</p>
+    <div className="p-4 sm:p-8 bg-white">
+      <div className="flex xs:flex-col items-center mb-6">
+        <label htmlFor="cat" className="p-1 mr-4 text-sm font-semibold">ENTER CATEGORY</label>
         <input
           type="text"
-          className="form-control my-3"
+          id="cat"
+          className="p-1 outline-none border border-custom-shade3 rounded-md"
           autoFocus
           required
           value={name}
           onChange={handleChange}
           placeholder="ex. summer"
         />
-        <button onClick={onSubmit} className="btn btn-outline-info">
-          create category
+      </div>
+      <div className="text-center">
+        <button onClick={onSubmit} className="btn text-sm">
+          CREATE CATEGORY
         </button>
       </div>
-    </form>
+    </div>
   );
 
   return (
     <Base
-      title="create a category herre"
-      description="add a new category  for new tshirts"
+      title="CREATE CATEGORY"
+      description=""
       className="container bg-info p-4"
     >
-      <div className="rw bg-white rounded">
-        <div className="col-md-8 offset-md-2">
+      <div className="w-max mx-auto items-center">
+        {(success || error) && <div className="bg-custom-shade2 p-2 rounded-md flex justify-between mb-4">
+          {success && successMessage()}
+          {error && warningMessage()}
+          <span className="cursor-pointer ml-8 p-1" onClick={(closeAlert)}>X</span>
+        </div>}
+      </div>
+      <div className="w-max mx-auto rounded-lg overflow-hidden border-2 border-custom-shade2">
           {goBack()}
-          {successMessage()}
-          {warningMessage()}
           {myCategoryForm()}
-        </div>
       </div>
     </Base>
   );
