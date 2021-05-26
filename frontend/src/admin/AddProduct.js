@@ -113,9 +113,7 @@ const AddProduct = () => {
         </div>
       </div>
     </motion.div>)
-    }
-
-    
+    }    
   };
 
   const closeAlert = (e) => {
@@ -225,7 +223,7 @@ const AddProduct = () => {
             </div>
           </Link>
         </div>
-        <div className="mb-4">
+        <div className="">
             {successMessaasge()}
             {erorrMessage()}
           <div className="">
