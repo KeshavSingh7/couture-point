@@ -20,9 +20,9 @@ const Orders = () => {
     });
   };
   return (
-    <Base title="Orders" description="managemnt orders">
+    <Base title="ORDERS" description="">
       {/* <h1 className="">orders are working</h1> */}
-      <div>
+      <div className="">
         {data.map((profile, index) => (
           <OrderComp key={index} profile={profile} />
         ))}
