@@ -15,27 +15,27 @@ const AdminDashboard = () => {
         </div>
         <div className="p-4 xs:flex flex-col justify-center">
           <div className="p-1 mx-auto">
-            <Link to="/admin/create/category" className="text-xs font-semibold">
+            <Link to="/admin/create/category" className="text-xs font-semibold opacity-95 hover:underline hover:opacity-100">
               CREATE CATEGORIES
             </Link>
           </div>
           <div className="p-1 mx-auto">
-            <Link to="/admin/categories" className="text-xs font-semibold">
+            <Link to="/admin/categories" className="text-xs font-semibold opacity-95 hover:underline hover:opacity-100">
               MANAGE CATEGORIES
             </Link>
           </div>
           <div className="p-1 mx-auto">
-            <Link to="/admin/create/products" className="text-xs font-semibold">
+            <Link to="/admin/create/products" className="text-xs font-semibold opacity-95 hover:underline hover:opacity-100">
               CREATE PRODUCT
             </Link>
           </div>
           <div className="p-1 mx-auto">
-            <Link to="/admin/products" className="text-xs font-semibold">
+            <Link to="/admin/products" className="text-xs font-semibold opacity-95 hover:underline hover:opacity-100">
               MANAGE PRODUCTS
             </Link>
           </div>
           <div className="p-1 mx-auto">
-            <Link to="/admin/orders" className="text-xs font-semibold">
+            <Link to="/admin/orders" className="text-xs font-semibold opacity-95 hover:underline hover:opacity-100">
               MANAGE ORDERS
             </Link>
           </div>
