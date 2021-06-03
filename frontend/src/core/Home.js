@@ -27,7 +27,7 @@ const Home = () => {
 
   return (
     <Base title="HOME" description="WELCOME TO THE PERFECT FASHION DESTINATION">
-        <motion.div layout className="flex flex-row justify-around lg:justify-between flex-wrap">
+        <motion.div layout className="grid justify-center grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  auto-rows-auto gap-6">
           {products.map((product) => {
             return (
               <div className="" key={product._id}>
