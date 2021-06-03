@@ -38,7 +38,6 @@ const Cart = () => {
   };
 
   const loadAllProducts = () => {
-    // console.log(products);
     return (
       <>
         {products && isAuthenticated() && (
@@ -74,9 +73,6 @@ const Cart = () => {
 
   return (
     <Base title="CART" description="">
-      {/* <div className="row text-center">
-        <div className="col-6">{loadCheckout()}</div>
-      </div> */}
       <p className="font-custom2 text-lg p-2 text-custom-shade3 text-center underline">
         PRODUCTS IN YOUR CART
       </p>

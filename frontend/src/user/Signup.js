@@ -130,62 +130,6 @@ const Signup = () => {
           </div>
         </div>
       </div>
-      /*<div className="row">
-        <div className="col-md-6 offset-sm-3 text-left">
-          <form action="">
-            <div className="form-group">
-              <div className="row">
-                <label className="text-dark col-md-3 offset-md-2 mt-auto">
-                  Name :
-                </label>
-                <input
-                  className="col-md-6 form-control"
-                  type="text"
-                  name=""
-                  id=""
-                  value={name}
-                  onChange={handleChange("name")}
-                />
-              </div>
-            </div>
-            <div className="form-group">
-              <div className="row">
-                <label className="text-dark col-md-3 offset-md-2 mt-auto">
-                  Email :
-                </label>
-                <input
-                  className="col-md-6 form-control"
-                  type="email"
-                  name=""
-                  id=""
-                  value={email}
-                  onChange={handleChange("email")}
-                />
-              </div>
-            </div>
-            <div className="form-group">
-              <div className="row">
-                <label className="text-dark col-md-3 offset-md-2 mt-auto">
-                  Password :
-                </label>
-                <input
-                  className="col-md-6 form-control"
-                  type="password"
-                  name=""
-                  id=""
-                  value={password}
-                  onChange={handleChange("password")}
-                />
-              </div>
-            </div>
-            <div className="col-10 offset-md-2">
-              <button onClick={onSubmit} className="btn btn-success form-control col-11">
-                submit
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>*/
     );
   };
 
@@ -194,7 +138,6 @@ const Signup = () => {
       {SuccessMessage()}
       {errorMessage()}
       {signUpForm()}
-      {/* <p className="text-white text-center">{JSON.stringify(values)}</p> */}
     </Base>
   );
 };

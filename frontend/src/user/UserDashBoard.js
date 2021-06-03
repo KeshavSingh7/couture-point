@@ -32,20 +32,6 @@ const UserDashboard = () => {
       .catch(e => console.log(e))
   }
 
-
-  /*const UserLeftSide = () => {
-    return (
-      <div className="">
-        <h4 className="">Navigation</h4>
-        <ul className="">
-          <li className="">
-            
-          </li>
-        </ul>
-      </div>
-    );
-  };*/
-
   const UserrightSide = () => {
     return (
       <div>
@@ -86,8 +72,6 @@ const UserDashboard = () => {
         <div className="bg-white p-4">
           {UserrightSide()}
         </div>
-        {/*<div className="col-md-3">{UserLeftSide()}</div>
-        <div className="offset-1 col-md-8">{UserrightSide()}</div>*/}
       </div>
     </Base>
   );
