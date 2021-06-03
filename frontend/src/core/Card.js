@@ -55,7 +55,7 @@ const CardIND = ({
   };
   return (
     <>
-      <div className="bg-white rounded-xl overflow-hidden shadow-lg my-4 p-2 font-custom2">
+      <div className="bg-white rounded-xl w-max mx-auto overflow-hidden shadow-lg my-4 p-2 font-custom2">
         <ImageHelper product={product} />
         {getAredirect(redirect)}
         <div className="product-description p-2">
